@@ -43,11 +43,6 @@ Contributions are welcome! If you would like to contribute to Portfolio Builder,
 3. Make your changes and commit them
 4. Open a pull request
 
-License
--------
-
-Portfolio Builder is licensed under the MIT License. See the `LICENSE` file for more information.
-
 Contact
 -------
 
