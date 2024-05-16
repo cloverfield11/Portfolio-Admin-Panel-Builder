@@ -1,0 +1,2 @@
+# Portfolio + Admin Panel Builder
+ Portfolio Builder is a web application that allows users to create and customize their own portfolio website. With this app, users can choose a color scheme, add information about themselves, projects, contact information, and social media links. The application also provides a simple and intuitive interface that makes the process of creating a portfolio website easy and efficient.
