@@ -28,7 +28,7 @@ Getting Started
 To get started with Portfolio Builder, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/cloverfield11/Portfolio-Admin-Panel-Builder`
-2. Choose project directory `cd /portfolio-builder`
+2. Choose project directory `cd /Portfolio-Admin-Panel-Builder`
 3. Install the dependencies: `npm install`
 4. Start the server: `node app.js`
 5. Open your browser and navigate to `http://localhost:3000`
