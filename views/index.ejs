@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <style>
+        .parallax {
+            background-image: linear-gradient(90deg, <%=color1 %> 0%, <%=color2 %> 50%, <%=color3 %> 100%);
+        }
+
+        .title {
+            color: <%=color4 %>;
+        }
+
+        .maintext {
+            color: <%=color6 %>;
+            text-align: left;
+            white-space: pre;
+        }
+
+        .link {
+            color: <%=color5 %>;
+        }
+
+        .column {
+            display: inline-block;
+            width: calc(33.333% - 40px);
+            margin: 10px;
+            padding: 15px;
+            box-sizing: border-box;
+            border: 1px solid <%=color4 %>;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .column a {
+            color: <%=color5 %>;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parallax"></div>
+    <div class="container">
+        <a href="/">
+            <h1 class="title">
+                <%= title %>
+            </h1>
+        </a>
+        <nav class="nav">
+            <ul class="list">
+                <li class="item"><a class="link" href="#" data-target="about">Обо мне</a></li>
+                <li class="item"><a class="link" href="#" data-target="projects">Проекты</a></li>
+                <li class="item"><a class="link" href="#" data-target="resume">Резюме</a></li>
+                <li class="item"><a class="link" href="#" data-target="contacts">Контакты</a></li>
+            </ul>
+        </nav>
+        <div class="info" id="about">
+            <div class="about-me-container">
+                <div class="about-me-content">
+                    <img class="about-me-image" src="data:image/png;base64, <%=image %>" alt="My profile picture">
+                    <div class="about-me-text">
+                        <p class="maintext">
+                            <%=maintext %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info" id="projects">
+            <% for (let i=0; i < states.length; i++) { %>
+                <div class="column">
+                    <% if (states[i].link) { %>
+                        <a href="<%= states[i].link %>">
+                            <h3>
+                                <%= states[i].text %>
+                            </h3>
+                        </a>
+                        <% } else { %>
+                            <h3>
+                                <%= states[i].text %>
+                            </h3>
+                            <% } %>
+                                <% if (states[i].image) { %>
+                                    <img src="data:image/png;base64, <%= states[i].image %>" alt="picture">
+                                    <a href="/article/<%= states[i].id %>">
+                                        <h3>
+                                            <%= states[i].statname %>
+                                        </h3>
+                                    </a>
+                                    <% } %>
+                </div>
+                <% } %>
+        </div>
+        <div class="info" id="resume">
+            <h2 class="title">Резюме</h2>
+            <p class="maintext">Здесь будет информация о резюме.</p>
+        </div>
+        <div class="info" id="contacts">
+            <div class="social-icons">
+              <a href="https://t.me/<%= telegram %>" class="social-icon" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+              <a href="https://vk.com/<%= vk %>" class="social-icon" target="_blank"><i class="fab fa-vk"></i></a>
+              <a href="mailto:<%= mail %>" class="social-icon" target="_blank"><i class="fas fa-envelope"></i></a>
+              <a href="https://github.com/<%= github %>" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+    </div>
+    <script>
+        const links = document.querySelectorAll('.link');
+        const title = document.querySelector('.title');
+        const nav = document.querySelector('.nav');
+        const infos = document.querySelectorAll('.info');
+
+        // Hide all info sections initially
+        infos.forEach((info) => {
+            info.style.display = 'none';
+        });
+
+        links.forEach((link) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                title.classList.add('animate');
+                nav.classList.add('animate');
+
+                // Hide the currently visible info section with a fade-out animation
+                const currentInfo = document.querySelector('.info.show');
+                if (currentInfo) {
+                    currentInfo.addEventListener('transitionend', () => {
+                        currentInfo.style.display = 'none';
+                        currentInfo.classList.remove('show');
+                        currentInfo.classList.remove('hide');
+                    });
+                    currentInfo.classList.remove('show');
+                    currentInfo.classList.add('hide');
+                }
+
+                setTimeout(() => {
+                    const target = document.getElementById(e.target.dataset.target);
+                    target.style.display = 'block';
+                    target.classList.add('show');
+
+                    // Replace the main title with the name of the menu item
+                    const menuItem = e.target.textContent;
+                    title.textContent = menuItem;
+
+                    // Hide the selected menu item from the navigation menu
+                    const selectedLink = e.target.parentNode;
+                    selectedLink.classList.add('hide');
+
+                    // Show all the other menu items
+                    links.forEach((link) => {
+                        if (link.parentNode !== selectedLink) {
+                            link.parentNode.classList.remove('hide');
+                        }
+                    });
+                }, 500);
+            });
+        });
+    </script>
+</body>
+
+</html>

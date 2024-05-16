@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    Проект
+  </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <style>
+    .parallax {
+      background-image: linear-gradient(90deg, <%=color1 %> 0%, <%=color2 %> 50%, <%=color3 %> 100%);
+    }
+
+    .title3 {
+      color: <%=color4 %>;
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: -10px;
+      border-bottom: 2px solid <%=color4 %>;
+    }
+
+    .title2 {
+      color: <%=color4 %>;
+      position: absolute;
+      top: 5%;
+      left: 0;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .maintext {
+      color: <%=color6 %>;
+      text-align: center;
+      line-height: 1.5;
+      font-size: 18px;
+    }
+
+    .link {
+      color: <%=color5 %>;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="parallax"></div>
+  <div class="container">
+    <a href="/">
+      <h2 class="title2">
+        < Назад </h2>
+    </a>
+    <img src="data:image/png;base64, <%= article.image %>" alt="picture">
+    <h2 class="title3">
+      <%= article.statname %>
+    </h2>
+    <p class="maintext" style="white-space: pre;">
+      <%= article.statext %>
+    </p>
+    <a class="link" href="<%= article.link %>" target="_blank">ссылка на проект</a>
+    <a class="link" href="<%= article.link2 %>" target="_blank">ссылка на код</a>
+  </div>
+</body>
+
+</html>

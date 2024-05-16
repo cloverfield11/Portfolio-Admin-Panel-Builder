@@ -1,0 +1,231 @@
+/* style.css */
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
+
+.parallax {
+    background-size: 200% 200%;
+    animation: gradient 15s ease infinite;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    --title-height: 20rem;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    --nav-height: 30rem;
+}
+
+.list {
+    list-style-type: none;
+    display: flex;
+}
+
+.item {
+    transition: transform 0.3s ease;
+}
+
+.link {
+    text-decoration: none;
+    margin: 0 1rem;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.item:hover {
+    transform: scale(1.1);
+}
+
+/* Добавьте стили для login.ejs */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.input-label {
+    margin-bottom: 0.25rem;
+    text-align: left;
+}
+
+.input {
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+.input:focus {
+    border-color: #ccc;
+    /* Добавьте или обновите это */
+}
+
+.button {
+    background-color: #ccc;
+    /* Добавьте или обновите это */
+    color: #333;
+    border: none;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+    /* Добавьте это */
+}
+
+.button:hover {
+    background-color: #ddd;
+    /* Добавьте или обновите это */
+}
+
+.title.animate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.nav.animate {
+    position: absolute;
+    top: 5%;
+    right: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.info {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: none;
+}
+
+.info.hide {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: none;
+}
+
+.info.show {
+    opacity: 1;
+    display: block;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img {
+    max-width: 500px;
+    height: auto;
+    border: solid 2px black;
+}
+
+.about-me-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-me-content {
+    display: flex;
+    align-items: center;
+}
+
+.about-me-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.about-me-text {
+    flex: 1;
+    line-height: 1.5;
+}
+
+.hide {
+    display: none;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.column img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border: solid 1px #ccc;
+}
+
+.column h3 {
+    margin: 0 0 10px;
+}
+
+.column a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.social-icon {
+    margin: 0 10px;
+    font-size: 50px;
+    color: #333;
+}
