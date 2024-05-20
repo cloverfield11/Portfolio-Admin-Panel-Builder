@@ -40,19 +40,19 @@ app.get('/', (req, res) => {
         if (err) {
             return console.error(err.message);
         }
-        db.get('SELECT title, color1, color2, color3, color4, color5, color6, image, maintext, telegram, vk, mail, github FROM settings, design, image, about, socials WHERE settings.id = 1 AND design.id = 1 AND image.id = 1 AND about.id = 1 AND socials.id = 1', [], (err, row) => {
+        db.get('SELECT title, color1, color2, color3, color4, color5, color6, image, maintext, telegram, vk, mail, github, linkedin FROM settings, design, image, about, socials WHERE settings.id = 1 AND design.id = 1 AND image.id = 1 AND about.id = 1 AND socials.id = 1', [], (err, row) => {
             if (err) {
                 return console.error(err.message);
             }
-            res.render('index', { title: row.title, color1: row.color1, color2: row.color2, color3: row.color3, color4: row.color4, color5: row.color5, color6: row.color6, image: row.image, maintext: row.maintext, telegram: row.telegram, vk: row.vk, mail: row.mail, github: row.github, states: rows });
+            res.render('index', { title: row.title, color1: row.color1, color2: row.color2, color3: row.color3, color4: row.color4, color5: row.color5, color6: row.color6, image: row.image, maintext: row.maintext, telegram: row.telegram, vk: row.vk, mail: row.mail, github: row.github, linkedin: row.linkedin, states: rows });
         });
     });
 });
 
-app.post('/administrator/add_socials', (req, res) => {
-    const { telegram, vk, mail, github } = req.body;
+app.post('/administrator/edit_socials', (req, res) => {
+    const { telegram, vk, mail, github, linkedin } = req.body;
 
-    db.run(`UPDATE socials SET telegram = ?, vk = ?, mail = ?, github = ? WHERE id = 1`, [telegram, vk, mail, github], function (err) {
+    db.run(`UPDATE socials SET telegram = ?, vk = ?, mail = ?, github = ?, linkedin = ? WHERE id = 1`, [telegram, vk, mail, github, linkedin], function (err) {
         if (err) {
             return console.error(err.message);
         }
@@ -182,11 +182,11 @@ app.get('/administrator', (req, res) => {
         return res.redirect('/administrator/login');
     }
 
-    db.get('SELECT title, color1, color2, color3, color4, color5, color6, maintext, telegram, vk, mail, github FROM settings, design, about, socials WHERE settings.id = 1 AND design.id = 1 AND about.id = 1 AND socials.id = 1', [], (err, row) => {
+    db.get('SELECT title, color1, color2, color3, color4, color5, color6, maintext, telegram, vk, mail, github, linkedin FROM settings, design, about, socials WHERE settings.id = 1 AND design.id = 1 AND about.id = 1 AND socials.id = 1', [], (err, row) => {
         if (err) {
             return console.error(err.message);
         }
-        res.render('admin-panel', { title: row.title, color1: row.color1, color2: row.color2, color3: row.color3, color4: row.color4, color5: row.color5, color6: row.color6, maintext: row.maintext, telegram: row.telegram, vk: row.vk, mail: row.mail, github: row.github });
+        res.render('admin-panel', { title: row.title, color1: row.color1, color2: row.color2, color3: row.color3, color4: row.color4, color5: row.color5, color6: row.color6, maintext: row.maintext, telegram: row.telegram, vk: row.vk, mail: row.mail, github: row.github, linkedin: row.linkedin });
     });
 });
 

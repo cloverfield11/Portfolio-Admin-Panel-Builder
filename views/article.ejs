@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>
-    Проект
+    Project
   </title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
@@ -37,6 +37,18 @@
       font-size: 18px;
     }
 
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    img {
+      max-width: 500px;
+      height: auto;
+      border: solid 2px black;
+    }
+
     .link {
       color: <%=color5 %>;
     }
@@ -48,7 +60,7 @@
   <div class="container">
     <a href="/">
       <h2 class="title2">
-        < Назад </h2>
+        < Back </h2>
     </a>
     <img src="data:image/png;base64, <%= article.image %>" alt="picture">
     <h2 class="title3">
@@ -57,8 +69,8 @@
     <p class="maintext" style="white-space: pre;">
       <%= article.statext %>
     </p>
-    <a class="link" href="<%= article.link %>" target="_blank">ссылка на проект</a>
-    <a class="link" href="<%= article.link2 %>" target="_blank">ссылка на код</a>
+    <a class="link" href="<%= article.link %>" target="_blank">project link</a>
+    <a class="link" href="<%= article.link2 %>" target="_blank">github link</a>
   </div>
 </body>
 

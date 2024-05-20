@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Админ панель</title>
+    <title>Admin Panel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
     <link rel="stylesheet" href="/stylesheets/style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
@@ -13,14 +13,13 @@
 <body>
     <div class="container2">
         <aside class="sidebar">
-            <h2 class="sidebar-title">Админ панель 1.0</h2>
+            <h2 class="sidebar-title">Admin Panel 1.0</h2>
             <nav class="nav">
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-cog"></i> Общие настройки</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-plus"></i> Настройки контента</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-edit"></i> Данные входа</a></li>
-                    <li class="nav-item"><a href="/administrator/logout" class="nav-link"><i
-                                class="fas fa-sign-out-alt"></i> Выход</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-cog"></i> Settings </a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-plus"></i> Content settings </a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-edit"></i> Login | Password </a></li>
+                    <li class="nav-item"><a href="/administrator/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                 </ul>
             </nav>
         </aside>
@@ -28,119 +27,119 @@
             <div class="settings-form" style="display: none;">
                 <form action="/administrator/edit_logpass" method="post" class="form">
                     <div class="input-group">
-                        <label for="username" class="input-label">Логин:</label>
+                        <label for="username" class="input-label">Login:</label>
                         <input type="text" name="username" id="username" required class="input">
                     </div>
                     <div class="input-group">
-                        <label for="password" class="input-label">Пароль:</label>
+                        <label for="password" class="input-label">Password:</label>
                         <input type="password" name="password" id="password" required class="input">
                     </div>
-                    <button type="submit" class="button">Сохранить</button>
+                    <button type="submit" class="button">Save</button>
                 </form>
             </div>
             <div class="settings-form2" style="display: none;">
                 <form action="/administrator/edit_title" method="post" class="form">
                     <div class="input-group">
-                        <label for="title" class="input-label">Название:</label>
+                        <label for="title" class="input-label">Portfolio name:</label>
                         <input type="text" name="title" id="title" required class="input" value="<%= title %>">
                     </div>
-                    <button type="submit" class="button">Сохранить</button>
+                    <button type="submit" class="button">Save</button>
                 </form>
                 <form action="/administrator/edit_design" method="post" class="form">
-                    <label for="title" class="input-label">Изменение цвета фона</label>
+                    <label for="title" class="input-label">Change background color</label>
                     <div class="input-group input-group-inline">
-                        <label for="color1" class="input-label">Цвет 1:</label>
+                        <label for="color1" class="input-label">Color 1:</label>
                         <input type="color" name="color1" id="color1" required class="input" value="<%= color1 %>">
                     </div>
                     <div class="input-group input-group-inline">
-                        <label for="color2" class="input-label">Цвет 2:</label>
+                        <label for="color2" class="input-label">Color 2:</label>
                         <input type="color" name="color2" id="color2" required class="input" value="<%= color2 %>">
                     </div>
                     <div class="input-group input-group-inline">
-                        <label for="color3" class="input-label">Цвет 3:</label>
+                        <label for="color3" class="input-label">Color 3:</label>
                         <input type="color" name="color3" id="color3" required class="input" value="<%= color3 %>">
                     </div>
-                    <button type="submit" class="button">Сохранить</button>
+                    <button type="submit" class="button">Save</button>
                 </form>
                 <form action="/administrator/edit_design_text" method="post" class="form">
-                    <label for="title" class="input-label">Изменение цвета текста</label>
+                    <label for="title" class="input-label">Change text color</label>
                     <div class="input-group input-group-inline">
-                        <label for="color4" class="input-label">Цвет заголовков:</label>
+                        <label for="color4" class="input-label">Headers color:</label>
                         <input type="color" name="color4" id="color4" required class="input" value="<%= color4 %>">
                     </div>
                     <div class="input-group input-group-inline">
-                        <label for="color4" class="input-label">Цвет основного текста:</label>
+                        <label for="color4" class="input-label">Main text color:</label>
                         <input type="color" name="color6" id="color6" required class="input" value="<%= color6 %>">
                     </div>
                     <div class="input-group input-group-inline">
-                        <label for="color5" class="input-label">Цвет пунктов меню навигации:</label>
+                        <label for="color5" class="input-label">Navigation color:</label>
                         <input type="color" name="color5" id="color5" required class="input" value="<%= color5 %>">
                     </div>
-                    <button type="submit" class="button">Сохранить</button>
+                    <button type="submit" class="button">Save</button>
                 </form>
             </div>
             <div class="settings-form3" style="display: none;">
                 <div class="content-buttons">
-                    <button class="button" id="about-me-btn">Обо мне</button>
-                    <button class="button" id="projects-btn">Проекты</button>
-                    <button class="button" id="resume-btn">Резюме</button>
-                    <button class="button" id="contacts-btn">Контакты</button>
+                    <button class="button" id="about-me-btn">About me</button>
+                    <button class="button" id="projects-btn">Projects</button>
+                    <button class="button" id="resume-btn">Resume</button>
+                    <button class="button" id="contacts-btn">Contacts</button>
                 </div>
                 <div class="content-sections">
                     <div class="section" id="about-me-section" style="display: none;">
                         <form action="/administrator/photo_aboutme" method="post" enctype="multipart/form-data"
                             class="form">
                             <div class="input-group">
-                                <label for="image" class="input-label">Фото:</label>
+                                <label for="image" class="input-label">Picture:</label>
                                 <input type="file" name="image" id="image" required class="input">
                             </div>
-                            <button type="submit" class="button">Сохранить</button>
+                            <button type="submit" class="button">Save</button>
                         </form>
                         <form action="/administrator/edit_aboutme" method="post" class="form">
                             <div class="input-group">
-                                <label for="maintext" class="input-label">Основной текст раздела:</label>
+                                <label for="maintext" class="input-label">Main text "About me":</label>
                                 <textarea id="maintext" name="maintext" rows="10" cols="50" required class="input"
                                     style="white-space: pre;"><%= maintext %></textarea>
                             </div>
-                            <button type="submit" class="button">Сохранить</button>
+                            <button type="submit" class="button">Save</button>
                         </form>
                     </div>
                     <div class="section" id="projects-section" style="display: none;">
                         <form action="/administrator/add_state" method="post" enctype="multipart/form-data"
                             class="form">
-                            <label for="title" class="input-label">Добавление проекта</label>
+                            <label for="title" class="input-label">Add new project</label>
                             <br>
                             <div class="input-group">
-                                <label for="statname" class="input-label">Название:</label>
+                                <label for="statname" class="input-label">Name:</label>
                                 <input type="text" name="statname" id="statname" required class="input">
                             </div>
                             <div class="input-group">
-                                <label for="statext" class="input-label">Текст:</label>
+                                <label for="statext" class="input-label">Description:</label>
                                 <textarea id="statext" name="statext" rows="10" cols="50" required class="input"
                                     style="white-space: pre;"></textarea>
                             </div>
                             <div class="input-group">
-                                <label for="image" class="input-label">Изображение:</label>
+                                <label for="image" class="input-label">Picture:</label>
                                 <input type="file" name="image" id="image" required class="input">
                             </div>
                             <div class="input-group">
-                                <label for="link" class="input-label">Ссылка на сайт проекта:</label>
+                                <label for="link" class="input-label">Project link:</label>
                                 <input type="text" name="link" id="link" required class="input">
                             </div>
                             <div class="input-group">
-                                <label for="link2" class="input-label">Ссылка на проект:</label>
+                                <label for="link2" class="input-label">Github link:</label>
                                 <input type="text" name="link2" id="link2" required class="input">
                             </div>
-                            <button type="submit" class="button">Сохранить</button>
+                            <button type="submit" class="button">Save</button>
                         </form>
                     </div>
                     <div class="section" id="resume-section" style="display: none;">
                         Resume content goes here.
                     </div>
                     <div class="section" id="contacts-section" style="display: none;">
-                        <form action="/administrator/add_socials" method="post" class="form">
+                        <form action="/administrator/edit_socials" method="post" class="form">
                             <div class="input-group">
-                                <label for="telegram" class="input-label">TG (ник):</label>
+                                <label for="telegram" class="input-label">TG (nickname):</label>
                                 <input type="text" name="telegram" id="telegram" required class="input" value="<%= telegram %>">
                             </div>
                             <div class="input-group">
@@ -148,22 +147,25 @@
                                 <input type="text" name="vk" id="vk" required class="input" value="<%= vk %>">
                             </div>
                             <div class="input-group">
-                                <label for="mail" class="input-label">Почта:</label>
+                                <label for="mail" class="input-label">Mail:</label>
                                 <input type="text" name="mail" id="mail" required class="input" value="<%= mail %>">
                             </div>
                             <div class="input-group">
-                                <label for="github" class="input-label">GitHub (ник):</label>
+                                <label for="github" class="input-label">GitHub (nickname):</label>
                                 <input type="text" name="github" id="github" required class="input" value="<%= github %>">
                             </div>
-                            <button type="submit" class="button">Сохранить</button>
+                            <div class="input-group">
+                                <label for="linkedin" class="input-label">Linkedin (nickname):</label>
+                                <input type="text" name="linkedin" id="linkedin" required class="input" value="<%= linkedin %>">
+                            </div>
+                            <button type="submit" class="button">Save</button>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="content-text">
-                <h1>Добро пожаловать в "Административную панель"</h1>
-                <p>Для изменения настроек, добавления контента или редактирования данных логина админа выберите
-                    соответствующий пункт в панели навигации.</p>
+                <h1>Welcome to "Admin Panel"</h1>
+                <p>For setting changes, working on content or edit admin login/password - change item in the navigation bar</p>
             </div>
         </main>
     </div>
@@ -173,7 +175,7 @@
             const settingsForm1 = document.querySelector('.settings-form');
             const contentText = document.querySelector('.content-text');
             const settingsForm2 = document.querySelector('.settings-form2');
-            const settingsForm3 = document.querySelector('.settings-form3'); // Добавляем settingsForm3
+            const settingsForm3 = document.querySelector('.settings-form3');
 
             if (settingsLink1) {
                 settingsLink1.addEventListener('click', (e) => {
@@ -181,7 +183,7 @@
                     settingsForm1.style.display = 'block';
                     contentText.style.display = 'none';
                     settingsForm2.style.display = 'none';
-                    settingsForm3.style.display = 'none'; // Скрываем settings-form3 при выборе settingsLink1
+                    settingsForm3.style.display = 'none';
                 });
             }
 
@@ -193,11 +195,11 @@
                     settingsForm2.style.display = 'block';
                     contentText.style.display = 'none';
                     settingsForm1.style.display = 'none';
-                    settingsForm3.style.display = 'none'; // Скрываем settings-form3 при выборе settingsLink2
+                    settingsForm3.style.display = 'none';
                 });
             }
 
-            const settingsLink3 = document.querySelector('.nav-item:nth-child(2) .nav-link'); // Добавляем settingsLink3
+            const settingsLink3 = document.querySelector('.nav-item:nth-child(2) .nav-link');
 
             if (settingsLink3) {
                 settingsLink3.addEventListener('click', (e) => {
@@ -205,7 +207,7 @@
                     settingsForm3.style.display = 'block';
                     contentText.style.display = 'none';
                     settingsForm1.style.display = 'none';
-                    settingsForm2.style.display = 'none'; // Скрываем settings-form2 при выборе settingsLink3
+                    settingsForm2.style.display = 'none';
                 });
             }
             const aboutMeBtn = document.querySelector('#about-me-btn');
