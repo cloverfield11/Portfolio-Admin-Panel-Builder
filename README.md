@@ -48,7 +48,7 @@ Contributions are welcome! If you would like to contribute to Portfolio Builder,
 Contact
 -------
 
-If you have any questions or suggestions, please feel free to contact me at [gmail](mailto:[gaponenko800@gmail.com]).
+If you have any questions or suggestions, please feel free to contact me at [mail](mailto:[me@cloverfield11.ru]).
 
 Acknowledgments
 ---------------
